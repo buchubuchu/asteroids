@@ -1,4 +1,6 @@
 import pygame
+import sys
+
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
 from player import Player
@@ -7,7 +9,6 @@ from asteroidfield import AsteroidField
 from logger import log_event
 from circleshape import CircleShape
 from shot import Shot
-import sys
 
 def main():
     pygame.init()
@@ -44,7 +45,7 @@ def main():
                 if shot.collides_with(member):
                     log_event("asteroid_shot")
                     shot.kill()
-                    member.kill()
+                    member.split()
 
         screen.fill("black")
         for member in drawable:
